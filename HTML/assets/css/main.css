@@ -51,7 +51,7 @@
 
 *::selection{
     color: var(--white);
-    background-color: var(--purple);
+    background-color: var(--violet);
 }
 
 html{
@@ -75,7 +75,7 @@ section{
 
 ::-webkit-scrollbar-thumb{
     border-radius: 1rem;
-    background-color: var(--purple);
+    background-color: var(--violet);
 }
 
 ::-webkit-scrollbar-track{
@@ -91,7 +91,7 @@ section{
 
 .swiper-pagination-bullet-active{
     width: 3rem;
-    background: var(--purple);
+    background: var(--violet);
 }
 
 /*--------------------- 0- Global CSS (End) ---------------------*/
@@ -106,7 +106,7 @@ section{
 .heading h2{
     text-align: center;
     padding-bottom: 2rem;
-    color:var(--purple);
+    color:var(--violet);
     font-size: 4rem;
 }
 
@@ -121,7 +121,7 @@ section{
     position: absolute;
     bottom: -0.5rem; left: 0;
     z-index: -1;
-    background: var(--purple);
+    background: var(--violet);
     height: 0.2rem;
     width: 80%;
     margin-left: 10%;
@@ -136,9 +136,9 @@ section{
     display: inline-block;
     padding: 1rem 2rem;
     font-size: 1.8rem;
-    color: var(--purple);
+    color: var(--violet);
     background-color: transparent;
-    border: 0.2rem solid var(--purple);
+    border: 0.2rem solid var(--violet);
 }
 
 .btn i{
@@ -147,7 +147,7 @@ section{
 
 .btn:hover{
     color: var(--white);
-    background-color: var(--purple);
+    background-color: var(--violet);
     cursor: pointer;
 }
 
@@ -180,15 +180,32 @@ header.sticky{
     justify-content: center;
     align-items: center;
     flex: 1; /* Allows centering of the items */
+    flex-wrap: wrap; /* This prevents overflow by wrapping items */
 }
 
-header .logo h2{
+header .logo {
+    display: flex;
+    align-items: center; /* Align image and text vertically */
+    justify-content: flex-start; /* Align content to the left */
+}
+
+header .logo img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px; /* Space between the image and text */
+    order: -1; /* Ensures image comes before the text */
+}
+
+header .logo h2 {
     font-size: 2.5rem;
     font-weight: 900;
     color: var(--violet);
-    text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
+
+
 
 header .navbar a{
     color: var(--white);
@@ -199,7 +216,7 @@ header .navbar a{
 
 header .navbar a:hover,
 header .navbar a.active{
-    color: var(--lblue);
+    color: var(--violet);
 }
 
 .contact-btn {
@@ -210,21 +227,35 @@ header .navbar a.active{
     text-decoration: none;
     font-size: 1.8rem;
     transition: background-color 0.3s, color 0.3s;
+    margin-left: 2rem; /* Space between contact and other items */
 }
 
-/* Make sure contact button stays at the right */
+/* Make sure contact button stays on the right */
 .navbar {
     position: relative;
 }
 
 .contact-btn {
-    position: absolute;
-    right: 0;
+    position: relative; /* Set relative positioning to stop it from overflowing */
 }
 
 .contact-btn:hover {
     background-color: var(--white);
-    color: var(--lblue);
+    color: var(--violet);
+}
+
+/* Media query to reduce text size and spacing on smaller screens to prevent overflow */
+@media screen and (max-width: 1200px) {
+    header .navbar a {
+        font-size: 1.8rem; /* Slightly reduce font size */
+        margin: 0 1rem; /* Reduce margin between links */
+    }
+
+    .contact-btn {
+        font-size: 1.5rem; /* Adjust size for smaller screens */
+        padding: 8px 15px; /* Reduce padding */
+        margin-left: 1rem; /* Adjust margin to fit in smaller space */
+    }
 }
 
 header #menu-btn{
@@ -244,7 +275,7 @@ header .fa-times{
 }
 
 header #menu-btn:hover{
-    color: var(--purple);
+    color: var(--violet);
 }
 
 /*--------------------- 3- Header Area CSS (End) ---------------------*/
@@ -312,7 +343,7 @@ header #menu-btn:hover{
 .home .content h2{
     font-size: 2.5rem;
     font-weight: 400;
-    color: var(--purple);
+    color: var(--violet);
 }
 
 .home .content h1{
@@ -323,7 +354,7 @@ header #menu-btn:hover{
 }
 
 .home .content h1 span{
-    color: var(--purple);
+    color: var(--violet);
 
 }
 
@@ -359,7 +390,7 @@ header #menu-btn:hover{
 
 .about .image img{
     width: 100%;
-    border: 1rem solid var(--purple);
+    border: 1rem solid var(--violet);
 }
 
 .about .content{
@@ -447,7 +478,7 @@ header #menu-btn:hover{
 
 .counting .box .count{
     font-size: 3.5rem;
-    color: var(--purple);
+    color: var(--violet);
     padding-bottom: 0.5rem;
 }
 
@@ -503,7 +534,7 @@ header #menu-btn:hover{
  .skill-item .box .progress-bar span{
     display:block;
     height:100%;
-    background: var(--purple);
+    background: var(--violet);
 }
 
  .skill-item.item1 .box:nth-child(1) .progress-bar span{
