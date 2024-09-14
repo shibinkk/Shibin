@@ -31,6 +31,7 @@
     --lblue:#5c3ceb;
     --violet:#716ffa;
     --green:#a8eb3c;
+    --orange:#ff6f2c;
 }
 
 *{
@@ -305,20 +306,39 @@ header #menu-btn:hover{
     gap: 4rem;
 }
 
-.home .image{
+.home .image {
     text-align: center;
     -webkit-box-flex: 1;
-      -ms-flex: 1 1 40rem;
-          flex: 1 1 40rem;
-
+    -ms-flex: 1 1 40rem;
+    flex: 1 1 40rem;
+    position: relative; /* Added to retain positioning */
+    height: 70rem;      /* Make the image box height flexible as per your original image */
 }
 
-.home .image img{
-    height: 40rem;
-    width: 40rem;
-    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70% ;
-    object-fit:cover;
+.img-box {
+    width: 100%;
+    height: 100%;
+    position: relative; /* Adjusted to keep it flexible inside the flex container */
 }
+
+.img-box img {
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    transition: bottom 1s, left 1s;
+    object-fit: cover;  /* Maintain aspect ratio and fit the images properly */
+}
+
+.img-box:hover .back-img {
+    bottom: 40px;
+}
+
+.img-box:hover .main-img {
+    left: 54%;
+}
+
 
 .home .content{
     -webkit-box-flex: 1;
@@ -331,7 +351,7 @@ header #menu-btn:hover{
 
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -390,7 +410,8 @@ header #menu-btn:hover{
 
 .about .image img{
     width: 100%;
-    border: 1rem solid var(--violet);
+    border: 0.5rem solid var(--violet);
+    border-radius: 10px;
 }
 
 .about .content{
@@ -487,79 +508,111 @@ header #menu-btn:hover{
     color: var(--white);
 }
 
-.skill-container{
+
+
+
+.skill-container {
     padding: 2rem 0;
 }
 
-.skills{
-    display: -webkit-box;
-    display: -ms-flexbox;
+.skills {
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-}
-
-.skill-item{
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 30rem;
-        flex: 1 1 30rem;
-    margin-right: 1.5rem;
-}
-
-.skill-item .box{
-    padding:1rem 0;
-}
-
- .skill-item .box h3{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
     justify-content: space-between;
-    padding:.7rem 0;
+}
+
+.technical-skills, .professional-skills {
+    width: 45%;
+}
+
+.technical-skills .box {
+    padding: 1rem 0;
+    margin-bottom: 2rem; /* Add margin to create space between skills */
+    position: relative;
+}
+
+.technical-skills .box h3 {
+    display: flex;
+    justify-content: space-between;
+    padding: .7rem 0;
     font-size: 1.7rem;
     color: var(--white);
     font-weight: 400;
 }
 
- .skill-item .box .progress-bar{
-    width:100%;
-    background:#222;
-    overflow:hidden;
-    height:1rem;
+.technical-skills .box .progress-bar {
+    width: 100%;
+    background: #222;
+    overflow: hidden;
+    height: 1rem;
     border-radius: 50rem;
+    position: relative;
 }
 
- .skill-item .box .progress-bar span{
-    display:block;
-    height:100%;
+.technical-skills .box .progress-bar span {
+    display: block;
+    height: 100%;
     background: var(--violet);
+    width: 0; /* Initial state */
+    animation: fillBar 2s ease forwards; /* Animation for page load */
 }
 
- .skill-item.item1 .box:nth-child(1) .progress-bar span{
-    width:95%;
+/* Animation to fill up the progress bar to the defined width */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--skill-width);
+    }
 }
 
- .skill-item.item1 .box:nth-child(2) .progress-bar span{
-    width:90%;
+/* Apply skill-specific widths using CSS variables */
+.technical-skills .box:nth-child(1) .progress-bar span { --skill-width: 95%; }
+.technical-skills .box:nth-child(2) .progress-bar span { --skill-width: 90%; }
+.technical-skills .box:nth-child(3) .progress-bar span { --skill-width: 85%; }
+.technical-skills .box:nth-child(4) .progress-bar span { --skill-width: 75%; }
+.technical-skills .box:nth-child(5) .progress-bar span { --skill-width: 65%; }
+.technical-skills .box:nth-child(6) .progress-bar span { --skill-width: 60%; }
+
+/* Ensure animation restarts on hover */
+.technical-skills .box:hover .progress-bar span {
+    animation: none; /* Cancel any ongoing animation */
+    width: var(--skill-width);
+    transition: width 2s ease; /* Animate filling to correct percentage */
 }
 
- .skill-item.item1 .box:nth-child(3) .progress-bar span{
-    width:85%;
+
+.circular-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.skill-item.item2 .box:nth-child(1) .progress-bar span{
-    width:75%;
+.circle-skill {
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 45%;
 }
 
- .skill-item.item2 .box:nth-child(2) .progress-bar span{
-    width:65%;
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid var(--violet);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--white);
 }
 
- .skill-item.item2 .box:nth-child(3) .progress-bar span{
-    width:60%;
+.circle-skill p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: var(--white);
 }
+
+
 
 /*--------------------- 5- About Area CSS (End) ---------------------*/
 
