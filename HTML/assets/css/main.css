@@ -581,22 +581,28 @@ header #menu-btn:hover{
     transition: width 2s ease; /* Animate filling to correct percentage */
 }
 
-
+.professional-skills .heading {
+    margin-bottom: 4rem; /* Adjust this value to control space below the heading */
+}
 .circular-skills {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center; /* Align items vertically centered */
 }
 
 .circle-skill {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     width: 45%;
+    display: flex;
+    flex-direction: column; /* Stack circle and text vertically */
+    align-items: center; /* Center-align items horizontally */
 }
 
 .circle {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     border: 5px solid var(--violet);
     display: flex;
@@ -604,15 +610,14 @@ header #menu-btn:hover{
     align-items: center;
     font-size: 1.5rem;
     color: var(--white);
+    margin-bottom: 1rem; /* Space between circle and text */
 }
 
 .circle-skill p {
     margin-top: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.7rem; /* Match this to the font-size in .technical-skills .box h3 */
     color: var(--white);
 }
-
-
 
 /*--------------------- 5- About Area CSS (End) ---------------------*/
 
