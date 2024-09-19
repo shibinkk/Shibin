@@ -720,46 +720,56 @@ header #menu-btn:hover{
         transform: rotate(180deg);
     }
 }
+/* Creativity (90%) - Already correct */
+/* Creativity (90%) */
 @keyframes loading-2{
     0%{
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100%{
-        -webkit-transform: rotate(144deg);
+        -webkit-transform: rotate(144deg); /* Creativity is 90%, so 162 degrees */
         transform: rotate(144deg);
     }
 }
+
+/* Communication (85%) */
 @keyframes loading-3{
     0%{
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100%{
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
+        -webkit-transform: rotate(130deg); /* Communication is 85%, so 153 degrees */
+        transform: rotate(130deg);
     }
 }
+
+/* Problem Solving (85%) */
 @keyframes loading-4{
     0%{
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100%{
-        -webkit-transform: rotate(36deg);
-        transform: rotate(36deg);
+        -webkit-transform: rotate(130deg); /* Problem Solving is 85%, so 153 degrees */
+        transform: rotate(130deg);
     }
 }
+
+/* Teamwork (80%) */
 @keyframes loading-5{
     0%{
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100%{
-        -webkit-transform: rotate(126deg);
-        transform: rotate(126deg);
+        -webkit-transform: rotate(115deg); /* Teamwork is 80%, so 144 degrees */
+        transform: rotate(115deg);
     }
 }
+
+
 @media only screen and (max-width: 990px){
     .progress{ margin-bottom: 20px; }
 }
