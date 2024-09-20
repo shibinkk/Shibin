@@ -1209,6 +1209,8 @@ header #menu-btn:hover{
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     overflow: hidden;
+    height: 58rem;
+    position: relative;
 }
 
 .blog-item .image{
@@ -1229,6 +1231,7 @@ header #menu-btn:hover{
 
 .blog-item .content{
     padding: 2rem 1rem;
+    
 }
 
 .blog-item .content .intro{
@@ -1266,10 +1269,15 @@ header #menu-btn:hover{
     padding: 1rem 0;
     font-size: 1.6rem;
     color: var(--grey);
+    text-transform: none;
 }
 
-.blog-item .btn{
-    margin-top: 1rem;
+.blog-item .btn {
+    position: absolute;
+    bottom: 2rem; /* Align button 1rem from the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+    margin-top: 0; /* Remove any previous margin that pushes the button */
 }
 
 /*--------------------- 10- Certification Area CSS (End) ---------------------*/
