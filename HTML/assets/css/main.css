@@ -567,12 +567,40 @@ header #menu-btn:hover{
 }
 
 /* Apply skill-specific widths using CSS variables */
-.technical-skills .box:nth-child(1) .progress-bar span { --skill-width: 95%; }
-.technical-skills .box:nth-child(2) .progress-bar span { --skill-width: 90%; }
-.technical-skills .box:nth-child(3) .progress-bar span { --skill-width: 85%; }
-.technical-skills .box:nth-child(4) .progress-bar span { --skill-width: 75%; }
-.technical-skills .box:nth-child(5) .progress-bar span { --skill-width: 65%; }
-.technical-skills .box:nth-child(6) .progress-bar span { --skill-width: 60%; }
+/* HTML5 - Red */
+.technical-skills .box:nth-child(1) .progress-bar span { 
+    --skill-width: 95%; 
+    background: #e74c3c; /* Red */
+}
+
+/* CSS3 - Blue */
+.technical-skills .box:nth-child(2) .progress-bar span { 
+    --skill-width: 90%; 
+    background: #1f08ee; /* Blue */
+}
+
+/* JavaScript - Yellow */
+.technical-skills .box:nth-child(3) .progress-bar span { 
+    --skill-width: 85%; 
+    background: #ffcd03; /* Yellow */
+}
+
+/* JQuery - Green */
+.technical-skills .box:nth-child(4) .progress-bar span { 
+    --skill-width: 75%; 
+    background: #0df13e; /* Green */
+}
+
+/* Bootstrap - Purple */
+.technical-skills .box:nth-child(5) .progress-bar span { 
+    --skill-width: 65%; 
+    background: #9c17d1; /* Purple */
+}
+
+.technical-skills .box:nth-child(6) .progress-bar span {
+     --skill-width: 60%; 
+     background: #ff7300;
+    }
 
 /* Ensure animation restarts on hover */
 .technical-skills .box:hover .progress-bar span {
@@ -697,13 +725,13 @@ header #menu-btn:hover{
     animation: loading-3 1s linear forwards 1.8s;
 }
 .progress.pink .progress-bar{
-    border-color: #ed687c;
+    border-color: #e41534;
 }
 .progress.pink .progress-left .progress-bar{
     animation: loading-4 0.4s linear forwards 1.8s;
 }
 .progress.green .progress-bar{
-    border-color: #1abc9c;
+    border-color: #048d72;
 }
 .progress.green .progress-left .progress-bar{
     animation: loading-5 1.2s linear forwards 1.8s;
@@ -844,11 +872,18 @@ header #menu-btn:hover{
     color: var(--white);
     padding: 2rem 0;
 }
+.experience-item h4{
+    font-size: 2rem;
+    color: var(--white);
+    padding: 1rem 0;
+}
+
 
 .experience-item p{
     color: var(--grey);
     font-size: 1.6rem;
-    line-height: 2.5rem;
+    line-height: 2rem;
+    text-transform: none;
 }
 
 /*--------------------- 6- Qualification Area CSS (End) ---------------------*/
@@ -1162,7 +1197,7 @@ header #menu-btn:hover{
 
 
 
-/*--------------------- 10- Blog Area CSS (Start) ---------------------*/
+/*--------------------- 10- certification CSS (Start) ---------------------*/
 .blog-slider{
     position: relative;
     padding-bottom: 4rem;
@@ -1237,7 +1272,7 @@ header #menu-btn:hover{
     margin-top: 1rem;
 }
 
-/*--------------------- 10- Blog Area CSS (End) ---------------------*/
+/*--------------------- 10- Certification Area CSS (End) ---------------------*/
 
 
 
@@ -1326,6 +1361,7 @@ header #menu-btn:hover{
     color: var(--grey);
     line-height: 1.6;
     padding-left: 1rem;
+    padding-top: 0.8rem;
 }
 
 .contact-form{
