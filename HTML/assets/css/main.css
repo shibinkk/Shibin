@@ -34,6 +34,7 @@
     --violet:#716ffa;
     --green:#a8eb3c;
     --orange:#ff6f2c;
+    
 }
 
 *{
@@ -231,32 +232,24 @@ header {
     z-index: 999;
 }
 
-header.sticky{
+header.sticky {
     border-bottom: 0.1rem solid var(--grey);
     background: rgba(0, 0, 0, 0.8);
 }
 
-.navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1; /* Allows centering of the items */
-    flex-wrap: wrap; /* This prevents overflow by wrapping items */
-}
-
+/* Align logo and Shibin to the left */
 header .logo {
     display: flex;
-    align-items: center; /* Align image and text vertically */
-    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+    justify-content: flex-start;
 }
 
 header .logo img {
-    width: 40px; /* Adjust size as needed */
-    height: 40px;
+    width: 60px; /* Adjust size as needed */
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 10px; /* Space between the image and text */
-    order: -1; /* Ensures image comes before the text */
+    margin-right: 10px;
 }
 
 header .logo h2 {
@@ -266,39 +259,34 @@ header .logo h2 {
     letter-spacing: 0.2rem;
 }
 
-
-
-header .navbar a{
-    color: var(--white);
-    font-size: 1.8rem;
-    margin-left: 1rem;
-    margin: 0 2rem;
+/* Center navbar items */
+.navbar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center;
 }
 
-header .navbar a:hover,
-header .navbar a.active{
+.navbar a {
+    color: var(--white);
+    font-size: 2.3rem; /* Increase the size of navbar items */
+    margin: 0 2.5rem; /* Adjust margin for better spacing */
+}
+
+.navbar a:hover,
+.navbar a.active {
     color: var(--violet);
     text-decoration: none;
 }
 
 .contact-btn {
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: 2px solid var(--white);
     border-radius: 25px;
     color: var(--white);
     text-decoration: none;
-    font-size: 1.8rem;
+    font-size: 2rem;
     transition: background-color 0.3s, color 0.3s;
-    margin-left: 2rem; /* Space between contact and other items */
-}
-
-/* Make sure contact button stays on the right */
-.navbar {
-    position: relative;
-}
-
-.contact-btn {
-    position: relative; /* Set relative positioning to stop it from overflowing */
 }
 
 .contact-btn:hover {
@@ -306,40 +294,39 @@ header .navbar a.active{
     color: var(--violet);
 }
 
-/* Media query to reduce text size and spacing on smaller screens to prevent overflow */
-@media screen and (max-width: 1200px) {
-    header .navbar a {
-        font-size: 1.8rem; /* Slightly reduce font size */
-        margin: 0 1rem; /* Reduce margin between links */
-    }
-
-    .contact-btn {
-        font-size: 1.5rem; /* Adjust size for smaller screens */
-        padding: 8px 15px; /* Reduce padding */
-        margin-left: 1rem; /* Adjust margin to fit in smaller space */
-    }
-}
-
-header #menu-btn{
+/* Menubar for smaller screens */
+#menu-btn {
     font-size: 3rem;
     color: var(--white);
     cursor: pointer;
-    -webkit-transition: all 0.5s linear;
-       -moz-transition: all 0.5s linear;
-         -o-transition: all 0.5s linear;
-            transition: all 0.5s linear;
     display: none;
 }
 
-header .fa-times{
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+/* Hides navbar and shows menu icon for screens smaller than 1200px */
+@media (max-width: 1200px) {
+    .navbar {
+        display: none !important; /* Ensure navbar is hidden */
+    }
+
+    #menu-btn {
+        display: block; /* Show the menu button */
+    }
 }
 
-header #menu-btn:hover{
-    color: var(--violet);
+/* Keep navbar hidden in sticky state for smaller screens */
+@media (max-width: 1200px) {
+    header.sticky .navbar {
+        display: none !important; /* Keep navbar hidden */
+    }
 }
 
+/* Ensure contact button size remains fixed */
+@media (max-width: 992px) {
+    .contact-btn {
+        font-size: 2rem;
+        padding: 12px 25px;
+    }
+}
 /*--------------------- 3- Header Area CSS (End) ---------------------*/
 
 
