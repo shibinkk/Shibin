@@ -34,7 +34,10 @@
     --violet:#716ffa;
     --green:#a8eb3c;
     --orange:#ff6f2c;
-    
+    --icon-color: #344955;
+    --width: 50px;
+    --height: 50px;
+    --border-radius: 100%;
 }
 
 *{
@@ -242,6 +245,7 @@ header .logo {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-top: -2.6rem;
 }
 
 header .logo img {
@@ -250,14 +254,19 @@ header .logo img {
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
+    margin-top: 1rem;
 }
 
-header .logo h2 {
+header .logo p {
     font-size: 2.5rem;
     font-weight: 900;
     color: var(--violet);
     letter-spacing: 0.2rem;
+    margin-top: 1.8rem;
+    text-decoration: none;
 }
+
+
 
 /* Center navbar items */
 .navbar {
@@ -295,28 +304,176 @@ header .logo h2 {
 }
 
 /* Menubar for smaller screens */
-#menu-btn {
-    font-size: 3rem;
-    color: var(--white);
-    cursor: pointer;
-    display: none;
-}
+.wrapper {
+    width: var(--width);
+    height: var(--height);
+    position: relative;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.8rem;
+    margin-right: 3rem;
+    
+    .fab {
+      background: white;
+      width: var(--width);
+      height: var(--height);
+      position: relative;
+      z-index: 3;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 4px rgb(0, 0, 0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fab-animation-reverse 0.4s ease-out forwards;
+      
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 4px;
+        background: #000000;
+      }
+      
+      &::before {
+        width: 4px;
+        height: 18px;
+      }
+      
+      &::after {
+        width: 18px;
+        height: 4px;
+      }
+    }
+    
+    .fac {
+      width: 180px;
+      height: 300px;
+      border-radius: 40px;
+      position: absolute;
+      background: #fff;
+      z-index: 2;
+      padding: 0.5rem 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      top: 1px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      transition: opacity 0.2s ease-in, top 0.2s ease-in, width 0.1s ease-in;
+      
+    
+      a {
+        font-size: 20px;
+        color: var(--icon-color);
+        opacity: 1;
+        text-decoration: none;
+        transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Add smooth transition for transform */
+
+        &:hover {
+          transition: 0.2s;
+          opacity: 1;
+          color: var(--violet);
+          transform: scale(1.2);
+        }
+      }
+    }
+    
+    input {
+      height: 100%;
+      width: 100%;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      position: absolute;
+      z-index: 5;
+      opacity: 0;
+      
+      &:checked {
+        ~ .fab {
+          animation: fab-animation 0.4s ease-out forwards;
+        }
+        
+        ~ .fac {
+          width: 180px;
+          height: 300px;
+          animation: fac-animation 0.4s ease-out forwards 0.1s;
+          top: 70px; /*distance between circle and square*/
+          opacity: 1;/*opacity of options*/
+        }
+      }
+    }
+  }
+  
+  @keyframes fab-animation {
+    0% {
+      transform: rotate(0) scale(1);
+    }
+    20% {
+      transform: rotate(60deg) scale(0.93);
+    }
+    55% {
+      transform: rotate(35deg) scale(0.97);
+    }
+    80% {
+      transform: rotate(48deg) scale(0.94);
+    }
+    100% {
+      transform: rotate(45deg) scale(0.95);
+    }
+  }
+  
+  @keyframes fab-animation-reverse {
+    0% {
+      transform: rotate(45deg) scale(0.95);
+    }
+    20% {
+      transform: rotate(-15deg);
+    }
+    55% {
+      transform: rotate(10deg);
+    }
+    80% {
+      transform: rotate(-3deg);
+    }
+    100% {
+      transform: rotate(0) scale(1);
+    }
+  }
+  
+  @keyframes fac-animation {
+    0% {
+      transform: scale(1, 1);
+    }
+    33% {
+      transform: scale(0.95, 1.05);
+    }
+    66% {
+      transform: scale(1.05, 0.95);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
 
 /* Hides navbar and shows menu icon for screens smaller than 1200px */
+/* Hide the wrapper when the screen size is greater than 1200px */
 @media (max-width: 1200px) {
     .navbar {
-        display: none !important; /* Ensure navbar is hidden */
-    }
-
-    #menu-btn {
-        display: block; /* Show the menu button */
+        display: none; /* Ensure navbar is hidden when wrapper is visible */
     }
 }
 
-/* Keep navbar hidden in sticky state for smaller screens */
-@media (max-width: 1200px) {
-    header.sticky .navbar {
-        display: none !important; /* Keep navbar hidden */
+/* Hide the wrapper when the screen size is greater than 1200px */
+@media (min-width: 1201px) {
+    .wrapper {
+        display: none; /* Hide the wrapper for larger screens */
+    }
+
+    .navbar {
+        display: flex; /* Show the navbar for larger screens */
     }
 }
 
