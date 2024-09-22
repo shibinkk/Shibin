@@ -21,6 +21,7 @@
 
 /*--------------------- 0- Global CSS (Start) ---------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('star-shadows.css');
 
 
 :root{
@@ -61,10 +62,13 @@ html{
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+    
 }
 
 body{
     background-color: var(--black);
+    overflow: hidden;
+    
 }
 
 section{
@@ -95,6 +99,61 @@ section{
     width: 3rem;
     background: var(--violet);
 }
+
+
+#stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: var(--stars);
+    animation: animStar 50s linear infinite; }
+    #stars:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: var(--stars-after);}
+  
+  #stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: var(--stars2);
+    animation: animStar 100s linear infinite; }
+    #stars2:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: var(--stars2-after);}
+  
+  #stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: var(--stars3);
+    animation: animStar 150s linear infinite; }
+    #stars3:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: var(--stars3-after);}
+  
+  
+  @keyframes animStar {
+    from {
+      transform: translateY(0px); }
+    to {
+      transform: translateY(-2000px); } }
+  
+
 
 /*--------------------- 0- Global CSS (End) ---------------------*/
 
@@ -219,6 +278,7 @@ header .navbar a{
 header .navbar a:hover,
 header .navbar a.active{
     color: var(--violet);
+    text-decoration: none;
 }
 
 .contact-btn {
