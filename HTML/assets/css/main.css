@@ -1213,6 +1213,46 @@ header .logo p {
     overflow: hidden;
     border-radius: 40px;
 }
+
+/* Styling for buttons container */
+.app .buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem; /* Adds space between the buttons */
+}
+
+.app .buttons .btn {
+    display: inline-flex;
+    align-items: center; /* Aligns icon and text */
+    padding: 0.8rem 1.5rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    background-color: var(--light-blue); /* Light background color */
+    border-radius: 25px; /* Rounded corners */
+    border: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app .buttons .btn i {
+    margin-right: 0.8rem; /* Space between icon and text */
+    font-size: 2rem; /* Adjust icon size */
+}
+
+/* Hover effect for the button */
+.app .buttons .btn:hover {
+    background-color: var(--violet);
+    color: var(--white);
+}
+
+/* Specific color for button icon (optional) */
+.app .buttons .btn i.fab, 
+.app .buttons .btn i.fas {
+    color: var(--black);
+}
+
+
 .app__bgimg {
     position: absolute;
     top: 0;
@@ -1246,7 +1286,7 @@ header .logo p {
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     z-index: 1;
-    margin-top: -7rem;
+    margin-top: -6rem;
     margin-left: 8rem;
 }
 .app__text-line {
@@ -1472,7 +1512,7 @@ header .logo p {
     transform: translate(-50%, -50%) scale(1, 1);
     opacity: 1;
 }
-.icon-link {
+/* .icon-link {
     position: absolute;
     left: 5px;
     bottom: 5px;
@@ -1481,7 +1521,9 @@ header .logo p {
 .icon-link img {
     width: 100%;
     vertical-align: top;
-}
+} */
+
+
 
 /*--------------------- 7- Services Area CSS (End) ---------------------*/
 
