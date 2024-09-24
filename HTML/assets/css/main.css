@@ -1530,187 +1530,68 @@ header .logo p {
 
 
 /*--------------------- 8- Portfolio Area CSS (Start) ---------------------*/
-.controls{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    list-style-type: none;
-    margin-top: 2rem;
-}
-
-.controls .button{
-    cursor: pointer;
-    margin: 0.5rem;
-}
-
-.controls .button.active{
-    cursor: pointer;
-    background-color: var(--purple);
-    color: var(--white);
-}
-
-.portfolio .box-container{
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
-    gap: 0.5rem;
-    padding: 2rem 0; 
-}
-
-.portfolio-item{
-    border-radius: 0.5rem;
-    height: 25rem;
-    overflow: hidden;
-    position: relative;
-}
-
-.portfolio-item img{
-    height: 100%;
+.slider-container {
     width: 100%;
-    object-fit: cover;
-}
-
-.portfolio-item .content{
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    height: 80%;
-    width: 80%;
-    border-radius: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: -webkit-box;
-    display: -ms-flexbox;
+    height: 400px;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-transform: scale(0);
-            transform: scale(0);
+    justify-content: center; /* Horizontally center the slider */
+    align-items: center; /* Vertically center the slider */
+    /* overflow: hidden; Prevent content overflow */
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
-.portfolio-item .content h4{
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--purple);
-    transform-origin: top;
-    -webkit-transform: translateY(-10rem);
-            transform: translateY(-10rem);
-    opacity: 0;
-    padding-bottom: 1rem;
-    -webkit-transition: all 0.4s linear;
-       -moz-transition: all 0.4s linear;
-         -o-transition: all 0.4s linear;
-            transition: all 0.4s linear;
+.slider-pannel {
+    display: flex;
+    justify-content: center; /* Horizontally center the slides */
+    align-items: center; /* Vertically align the slides */
+    width: 80%; /* Adjust width as necessary */
+    height: 100%;
+    gap: 40px; /* Optional: space between slides */
 }
 
-.portfolio-item .content p{
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--white);
-    transform-origin: top;
-    -webkit-transform: translateY(-10rem);
-            transform: translateY(-10rem);
-    opacity: 0;
-    -webkit-transition: all 0.4s linear;
-       -moz-transition: all 0.4s linear;
-         -o-transition: all 0.4s linear;
-            transition: all 0.4s linear;
+.slide {
+    position: relative;
+    overflow: hidden;
+    flex: 1 0 auto; /* Make slides flexible */
+    min-width: 500px;
+    height: 85%;
+    margin: 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.671);
+    border-radius: 30px;
+    box-shadow: 1px 0px 40px 0 rgba(179, 179, 179, 0.671);
+    transform: translate(0); /* Remove horizontal translation */
+    transition: 1s ease-in-out;
+    cursor: pointer;
 }
 
-.portfolio-item .content .view-btn{
-    font-size: 2rem;
-    color: var(--purple);
-    transform-origin: top;
-    -webkit-transform: translateY(-10rem);
-            transform: translateY(-10rem);
-    opacity: 0;
-    -webkit-transition: all 0.4s linear;
-       -moz-transition: all 0.4s linear;
-         -o-transition: all 0.4s linear;
-            transition: all 0.4s linear;
-    border-radius: 5rem;
-    margin-top: 1.5rem;
+.inner {
+    width: 200%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .8s ease-in-out;
 }
 
-.portfolio-item:hover .content{
-    -webkit-transform: scale(1);
-            transform: scale(1);
+.active {
+    height: 100%;
 }
 
-.portfolio-item:hover .content h4{
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
+.slide1 .inner {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/005/732/461/small_2x/night-time-scene-with-bright-full-moon-at-lake-vector.jpg');
 }
 
-.portfolio-item:hover .content p{
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
+.slide2 .inner {
+    background-image: url('../images/img2.jpg');
 }
 
-.portfolio-item:hover .content .view-btn{
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-}
-
-.portfolio-item:hover img{
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-}
-
-/*CSS3 Animation Effects for Magnific Popup*/
-
-/* start state */
-.mfp-newspaper  .mfp-with-anim {
-    opacity: 0;
-    -webkit-transition: all 0.5s ease-in-out; 
-            transition: all 0.5s ease-in-out; 
-
-    -webkit-transform: scale(0) rotate(500deg);
-            transform: scale(0) rotate(500deg);
-}
-.mfp-newspaper.mfp-bg {
-    opacity: 0;
-    -webkit-transition: all 0.5s ease-in-out; 
-            transition: all 0.5s ease-in-out; 
-}
-  
-/* animate in */
-.mfp-newspaper.mfp-ready .mfp-with-anim {
-    opacity: 1;
-    -webkit-transform: scale(1) rotate(0deg);
-            transform: scale(1) rotate(0deg);
-}
-.mfp-newspaper.mfp-ready.mfp-bg {
-    opacity: 0.8;
-}
-  
-/* animate out */
-.mfp-newspaper.mfp-removing .mfp-with-anim {
-    -webkit-transform: scale(0) rotate(500deg);
-            transform: scale(0) rotate(500deg);
-    opacity: 0;
-}
-.mfp-newspaper.mfp-removing.mfp-bg {
-    opacity: 0;
+.slide3 .inner {
+    background-image: url('../images/img3.jpg');
 }
 
 
