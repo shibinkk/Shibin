@@ -1,15 +1,13 @@
-let slide = document.querySelectorAll('.slide');
-let inner = document.querySelectorAll('.inner');
+function rotate() {
+  var lastChild = $('.slider div:last-child').clone();
+  $('.slider div').removeClass('firstSlide');
+  $('.slider div:last-child').addClass('hidden'); // Add hidden class to last image
+  $('.slider div:last-child').remove(); // Then remove it
+  $('.slider').prepend(lastChild);
+  $(lastChild).addClass('firstSlide');
+}
 
-slide.forEach((s, i) => {
-    s.addEventListener('click', () => {
-        slide.forEach((Sl) => {
-            Sl.classList.remove('active');
-            Sl.style.transform = `translateX(${slide[i].getAttribute('data-t')}%)`;
-            inner.forEach((inn) => {
-                inn.style.transform = `translateX(${inner[i].getAttribute('data-i')}%)`;
-            })
-        })
-        slide[i].classList.add('active')
-    })
-})
+// Set interval for rotation
+window.setInterval(function(){
+  rotate();
+}, 4000);
