@@ -1180,7 +1180,7 @@ header .logo p {
 
 
 
-/*--------------------- 7- Services Area CSS (Start) ---------------------*/
+/*--------------------- 7- Project Area CSS (Start) ---------------------*/
 .service .box-container{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1218,7 +1218,7 @@ header .logo p {
 .app .buttons {
     margin-top: 1rem;
     display: flex;
-    gap: 1rem; /* Adds space between the buttons */
+    gap: 1.2rem; /* Adds space between the buttons */
 }
 
 .app .buttons .btn {
@@ -1242,8 +1242,8 @@ header .logo p {
 
 /* Hover effect for the button */
 .app .buttons .btn:hover {
-    background-color: var(--violet);
-    color: var(--white);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* Specific color for button icon (optional) */
@@ -1525,7 +1525,7 @@ header .logo p {
 
 
 
-/*--------------------- 7- Services Area CSS (End) ---------------------*/
+/*--------------------- 7- Project Area CSS (End) ---------------------*/
 
 
 
@@ -1681,16 +1681,16 @@ header .logo p {
 /* start state */
 .mfp-newspaper  .mfp-with-anim {
     opacity: 0;
-    -webkit-transition: all 0.2s ease-in-out; 
-            transition: all 0.2s ease-in-out; 
+    -webkit-transition: all 0.5s ease-in-out; 
+            transition: all 0.5s ease-in-out; 
 
     -webkit-transform: scale(0) rotate(500deg);
             transform: scale(0) rotate(500deg);
 }
 .mfp-newspaper.mfp-bg {
     opacity: 0;
-    -webkit-transition: all 0.2s ease-in-out; 
-            transition: all 0.2s ease-in-out; 
+    -webkit-transition: all 0.5s ease-in-out; 
+            transition: all 0.5s ease-in-out; 
 }
   
 /* animate in */
