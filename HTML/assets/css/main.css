@@ -1125,14 +1125,17 @@ header .logo p {
         left: 50%;
         margin-top: 20px;
         border-radius: 5px;
+        display: flex;
     }
 }
 
 .each-event {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
+    /* opacity: 0.5; */
     color: #777;
     padding: 30px; /* Increased padding for height */
     margin: 60px 20px;
+    display: flex;
     width: 500px; /* Increased width */
     position: relative;
     border-radius: 12px; /* Increased border-radius */
@@ -1146,9 +1149,9 @@ header .logo p {
         width: 60px; /* Circle size */
         height: 60px;
         border-radius: 50%;
-        background-color: #fff;
+        background-color: #ffffff;
         box-shadow: 0 4px 20px -4px rgba(64, 64, 64, 0.8);
-        background-image: url('https://cdn-icons-png.flaticon.com/512/9348/9348801.png'); /* Add the graduation hat image */
+        background-image: url('https://img.freepik.com/premium-vector/purple-circle-with-man-graduation-cap_933463-37732.jpg?w=360'); /* Add the graduation hat image */
         background-size: cover;
         background-position: center;
     }
@@ -1161,6 +1164,32 @@ header .logo p {
             left: calc(100% + 26px); /* Adjusted position for the circle in even elements */
         }
     }
+}
+.each-event, .title {
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    transform: translateX(0); /* Default no movement */
+}
+
+/* Odd elements move from right */
+.each-event:nth-child(odd) {
+    transform: translateX(100px); /* Translate odd elements from right */
+}
+
+/* Even elements move from left */
+.each-event:nth-child(even) {
+    transform: translateX(-100px); /* Translate even elements from left */
+}
+
+/* When elements are in view, reset position to center */
+.fade-in:nth-child(odd) {
+    opacity: 1;
+    transform: translateX(0); /* Odd elements move to center */
+}
+
+.fade-in:nth-child(even) {
+    opacity: 1;
+    transform: translateX(0); /* Even elements move to center */
 }
 
 .title.non-focus {
