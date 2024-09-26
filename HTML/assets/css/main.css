@@ -1566,129 +1566,77 @@ header .logo p {
 
 /*--------------------- 8- Portfolio Area CSS (Start) ---------------------*/
 
-.container{
-    width:100%;
-    height:80vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    
-  }
-  .slider {
-    height: 750px;
-    width:100vw;
-    display: flex;
-    perspective: 1000px;
+.slider{
+    width: 1300px;
+    max-width: 100vw;
+    height: 700px;
+    margin: auto;
+    border-radius: 20px;
     position: relative;
-    align-items:center;
-    
-    /* overflow: hidden; */
-  }
-  .box1{      background:url('https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size:cover;
-    background-position:center center;}
-  .box2{
-  background:url('https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size:cover;
-    background-position:center center;}
-  .box3{
-  background:url('https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size:cover;
-    background-position:center center;}
-  .box4{
-  background:url('https://images.pexels.com/photos/3274903/pexels-photo-3274903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size:cover;
-    background-position:center center;}
-  .box5{
-  background:url('https://images.pexels.com/photos/3618162/pexels-photo-3618162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size:cover;
-    background-position:center center;}
-  .box6{
-  background:url('https://images.pexels.com/photos/4256852/pexels-photo-4256852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size:cover;
-    background-position:center center;}
-  .box7{
-  background:url('https://images.pexels.com/photos/1891234/pexels-photo-1891234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size:cover;
-    background-position:center center;}
-  
-  .slider [class*="box"] {
-  /*   float: left; */
     overflow: hidden;
-    border-radius:20px;
-    transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-      position:absolute;
-      
-      
-  }
-  .slider [class*="box"]:nth-child(7),
-  .slider [class*="box"]:nth-child(1) {
-    width: 100vh;
-    height: 60vh;
-    transform: scale(0.2) translate(-50%,-50%);
-    top: 10%;
-    z-index:1;
-  }
-  .slider [class*="box"]:nth-child(2),
-  .slider [class*="box"]:nth-child(6) {
-    width: 100vh;
-    height: 60vh;
-    transform: scale(0.4) translate(-50%,-50%);
-    top: 20%;
-    z-index:2;
-  }
-  .slider [class*="box"]:nth-child(3),
-  .slider [class*="box"]:nth-child(5) {
-    width: 100vh;
-    height: 60vh;
-    transform: scale(0.6) translate(-50%,-50%);
-    top: 30%;
-    z-index:3;
-  }
-  .slider [class*="box"]:nth-child(4) {
-    width: 60vw;
-    height: 60vh;
-    border-color: #c92026;
-    color: #fff;
-    transform: scale(1) translate(-50%,-50%);
-    top: 50%;
-    z-index:4;
-    box-shadow: 5px 5px 25px rgb(255, 255, 255);
-  }
-  .slider [class*="box"]:nth-child(1){
-    left:-13%;}
-  .slider [class*="box"]:nth-child(2){
-    left:-5%;}
-  .slider [class*="box"]:nth-child(3){
-    left:10%;}
-  .slider [class*="box"]:nth-child(4){
-    left:50%;}
-  .slider [class*="box"]:nth-child(5){
-    left:68%;}
-  .slider [class*="box"]:nth-child(6){
-    left:72%;}
-  .slider [class*="box"]:nth-child(7){
-    left:100%;}
-    .slider .firstSlide {
-        -webkit-animation: firstChild 1s forwards; /* Added 'forwards' to retain the last frame */
-        animation: firstChild 1s forwards; /* Added 'forwards' to retain the last frame */
-    }
-  /*Animation for buyers landing page slider*/
-  @keyframes firstChild {
-    0% {
-        left: 100%;
-        transform: scale(0.2) translate(-50%, -50%);
-    }
-    80% { /* New keyframe to slow down movement before disappearing */
-        left: 50%; /* Position before it disappears */
-        transform: scale(0.4) translate(-50%, -50%); /* Scale up slightly */
-    }
-    100% {
-        left: -13%; 
-        transform: scale(0.2) translate(-50%, -50%);
-    }
 }
-
+.list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    width: max-content;
+    transition: 1s;
+}
+.list img{
+    width: 1300px;
+    max-width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}
+.buttons{
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 505;
+    background-color: #fff5;
+    color: #fff;
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+}
+.dots{
+    position: absolute;
+    bottom: 10px;
+    color: #fff;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    transition: 1s;
+}
+.dots li {
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 20px;
+}
+.dots li.active {
+    width: 30px;
+}
+@media screen and ( max-width: 768px) { 
+    .slider {
+        height: 400px;
+    }
+    
+}
 
 /*--------------------- 8- Portfolio Area CSS (End) ---------------------*/
 

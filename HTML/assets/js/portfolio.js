@@ -1,40 +1,44 @@
-$(document).ready(function(){
+let list = document.querySelector('.slider .list');
+let items = document.querySelectorAll('.slider .list .item');
+let dots = document.querySelectorAll('.slider .dots li');
+let prev = document.getElementById('prev');
+let next = document.getElementById('next');
 
-    $(".button").click(function(){
-        $(this).addClass("active").siblings().removeClass("active");
+let active = 0;
+let lengthitems = items.length - 1;
 
-        var filter = $(this).attr("data-filter");
-    
-        if (filter == "all"){
-            $(".gallery .image").show(400);
-        }
-        else{
-            $(".gallery .image").not("."+filter).hide(200);
-            $(".gallery .image").filter("."+filter).show(400);
-        }
+next.onclick = function() {
+    if (active + 1 > lengthitems) {
+        active = 0;
+    } else {
+        active = active + 1;
+    }
+    reloadslider();
+}
+
+prev.onclick = function() {
+    if (active - 1 < 0) {
+        active = lengthitems;
+    } else {
+        active = active - 1;
+    }
+    reloadslider();
+}
+
+let autoslide = setInterval(() => { next.click(); }, 3000);
+
+function reloadslider() {
+    let checkleft = items[active].offsetLeft;
+    list.style.left = -checkleft + 'px';
+
+    let lastactiveDot = document.querySelector('.slider .dots li.active');
+    if (lastactiveDot) lastactiveDot.classList.remove('active');
+    dots[active].classList.add('active');
+}
+
+dots.forEach((li, key) => {
+    li.addEventListener('click', function() {
+        active = key;
+        reloadslider();
     })
-
-    //MAGNIFIC-POPUP
-    $(".gallery").magnificPopup({
-        
-        delegate: "a",
-        type: "image",
-        removalDelay: 500, //delay removal by X to allow out-animation
-        gallery:{
-            enabled: true
-        },
-
-        callbacks: {
-            beforeOpen: function() {
-              // just a hack that adds mfp-anim class to markup 
-               this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-               this.st.mainClass = this.st.el.attr('data-effect');
-            }
-          },
-          closeOnContentClick: true,
-          midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
-
-    })
-
-
-});
+})
