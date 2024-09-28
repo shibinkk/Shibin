@@ -881,30 +881,30 @@ header .logo p {
 
 /* CSS3 - Blue */
 .technical-skills .box:nth-child(2) .progress-bar span { 
-    --skill-width: 90%; 
+    --skill-width: 85%; 
     background: #1f08ee; /* Blue */
 }
 
 /* JavaScript - Yellow */
 .technical-skills .box:nth-child(3) .progress-bar span { 
-    --skill-width: 85%; 
+    --skill-width: 80%; 
     background: #ffcd03; /* Yellow */
 }
 
 /* JQuery - Green */
 .technical-skills .box:nth-child(4) .progress-bar span { 
-    --skill-width: 75%; 
+    --skill-width: 70%; 
     background: #0df13e; /* Green */
 }
 
 /* Bootstrap - Purple */
 .technical-skills .box:nth-child(5) .progress-bar span { 
-    --skill-width: 65%; 
+    --skill-width: 75%; 
     background: #9c17d1; /* Purple */
 }
 
 .technical-skills .box:nth-child(6) .progress-bar span {
-     --skill-width: 60%; 
+     --skill-width: 85%; 
      background: #ff7300;
     }
 
@@ -1108,6 +1108,50 @@ header .logo p {
     .progress{ margin-bottom: 20px; }
 }
 
+/* For medium screens */
+@media only screen and (max-width: 768px) {
+    .progress {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+    }
+
+    .progress:after {
+        border-width: 10px;
+    }
+
+    .progress .progress-value {
+        font-size: 20px;
+        line-height: 108px;
+    }
+    
+    .circle-box {
+        width: 48%; /* Adjusts the width for medium screens */
+    }
+}
+
+/* For small screens */
+@media only screen and (max-width: 576px) {
+    .progress {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+    }
+
+    .progress:after {
+        border-width: 8px;
+    }
+
+    .progress .progress-value {
+        font-size: 18px;
+        line-height: 90px;
+    }
+    
+    .circle-box {
+        width: 100%; /* Full width for small screens */
+        margin-bottom: 1.5rem;
+    }
+}
 
 /*--------------------- 5- About Area CSS (End) ---------------------*/
 
